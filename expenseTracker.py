@@ -1,14 +1,24 @@
-expense_list=[]
-stopped =False
-while not stopped:
-    expense=int(input("enter your expense, (press 0 to stop) $"))
-    # print(type(expense))
-    if expense!=0:
-        expense_list.append(expense)
-    else:
-        stopped=True
+from datetime import date
+import csv
 
-print(f"Your expense list is",expense_list)
-print(f"Your total expense is",sum(expense_list))
-print(f"Max expense is",max(expense_list))
-print(f"Min expense is",min(expense_list))
+dt =date.today()
+dt= dt.strftime("%d/%m/%Y")
+
+filename="tracker.csv"
+exp_list=[]
+stopped=False
+with open(filename,"a") as f:
+    csv_write= csv.writer(f)
+    csv_write.writerow(["Date","Expense in $"])
+    while not stopped:
+        expense=int(input("Enter your expense,(type 0 to stop) "))
+        if expense==0:
+            stopped= True
+        else:
+
+            csv_write.writerow([dt,('$',expense)])
+            exp_list.append(expense)
+
+print("\nFile Successfully written to a file")
+
+
