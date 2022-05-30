@@ -16,7 +16,7 @@ with open(filename,"a") as f:
             stopped= True
         else:
 
-            csv_write.writerow([dt,('$',expense)])
+            csv_write.writerow([dt,expense])
             exp_list.append(expense)
 
 print("\nFile Successfully written to a file")
