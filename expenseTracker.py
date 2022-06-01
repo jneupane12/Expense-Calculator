@@ -9,7 +9,7 @@ exp_list=[]
 stopped=False
 with open(filename,"a") as f:
     csv_write= csv.writer(f)
-    csv_write.writerow(["Date","Expense in $"])
+    # csv_write.writerow(["Date","Expense in $"])
     while not stopped:
         expense=int(input("Enter your expense,(type 0 to stop) "))
         if expense==0:
